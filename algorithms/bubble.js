@@ -1,4 +1,6 @@
-let arr = [2, 14, 16, 3, 1]
+import swap from '../util/swap.js'
+
+let arr = [2, 14, 16, 3, 1, 10, 27, 89, 0]
 let len = arr.length
 
 function bubbleSort(arr, len) {
@@ -7,10 +9,7 @@ function bubbleSort(arr, len) {
 		swapped = false
 		for (let j = 0; j < len - i - 1; j++) {
 			if (arr[j] > arr[j + 1]) {
-				let temp = arr[j]
-				arr[j] = arr[j + 1]
-				arr[j + 1] = temp
-
+				swap(arr, j, j + 1)
 				swapped = true
 			}
 		}

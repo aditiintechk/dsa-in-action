@@ -1,3 +1,5 @@
+import swap from '../util/swap.js'
+
 let arr = [2, 13, 3, 10, 1, 20, 61, 82, 12, 11]
 let len = arr.length
 
@@ -11,9 +13,7 @@ function selection(arr, len) {
 			}
 		}
 
-		let temp = arr[minIndex]
-		arr[minIndex] = arr[i]
-		arr[i] = temp
+		swap(arr, minIndex, i)
 	}
 	return arr
 }
