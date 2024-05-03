@@ -2,10 +2,10 @@ import randArr from '../util/randomArray.js'
 import unitTest from '../unit-test/unit-test.js'
 
 let arraySize = 40000
-let arr = randArr(arraySize)
-let len = arr.length
 
-function insertionSort(arr, len) {
+function insertionSort() {
+	let arr = randArr(arraySize)
+	let len = arr.length
 	let key, j
 	for (let i = 1; i < len; i++) {
 		key = arr[i]
@@ -24,7 +24,7 @@ function insertionSort(arr, len) {
 function benchMark() {
 	let startTime, endTime, elapsedTime
 	startTime = performance.now()
-	insertionSort(arr, len)
+	insertionSort()
 	endTime = performance.now()
 	elapsedTime = ((endTime - startTime) / 1000).toFixed(2)
 	console.log(
@@ -33,4 +33,4 @@ function benchMark() {
 }
 
 benchMark()
-unitTest(insertionSort(arr, len), 'Insertion')
+unitTest(insertionSort(), 'Insertion')

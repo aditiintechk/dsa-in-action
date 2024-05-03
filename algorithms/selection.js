@@ -3,10 +3,10 @@ import randArr from '../util/randomArray.js'
 import unitTest from '../unit-test/unit-test.js'
 
 let arraySize = 40000
-let arr = randArr(arraySize)
-let len = arr.length
 
-function selectionSort(arr, len) {
+function selectionSort() {
+	let arr = randArr(arraySize)
+	let len = arr.length
 	let minIndex
 	for (let i = 0; i < len - 1; i++) {
 		minIndex = i
@@ -24,7 +24,7 @@ function selectionSort(arr, len) {
 function benchMark() {
 	let startTime, endTime, elapsedTime
 	startTime = performance.now()
-	selectionSort(arr, len)
+	selectionSort()
 	endTime = performance.now()
 	elapsedTime = ((endTime - startTime) / 1000).toFixed(2)
 	console.log(
@@ -33,4 +33,4 @@ function benchMark() {
 }
 
 benchMark()
-unitTest(selectionSort(arr, len), 'Selection')
+unitTest(selectionSort(), 'Selection')
