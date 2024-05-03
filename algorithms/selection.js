@@ -2,9 +2,7 @@ import swap from '../util/swap.js'
 import randArr from '../util/randomArray.js'
 import unitTest from '../unit-test/unit-test.js'
 
-let arraySize = 40000
-
-function selectionSort() {
+function selectionSort(arraySize) {
 	let arr = randArr(arraySize)
 	let len = arr.length
 	let minIndex
@@ -21,16 +19,24 @@ function selectionSort() {
 	return arr
 }
 
-function benchMark() {
+function benchMark(arraySize) {
 	let startTime, endTime, elapsedTime
 	startTime = performance.now()
-	selectionSort()
+	selectionSort(arraySize)
 	endTime = performance.now()
 	elapsedTime = ((endTime - startTime) / 1000).toFixed(2)
 	console.log(
-		`selection sort for ${arraySize} numbers took ${elapsedTime} seconds`
+		`Selection sort for ${arraySize} numbers took ${elapsedTime} seconds`
 	)
 }
 
-benchMark()
-unitTest(selectionSort(), 'Selection')
+function sortForVariousInputs() {
+	let numArr = [10, 100, 1000, 10000, 40000, 50000, 80000, 100000]
+	for (let i = 0; i < numArr.length; i++) {
+		benchMark(numArr[i])
+		unitTest(selectionSort(numArr[i]), 'Selection')
+		console.log('-------------------------------')
+	}
+}
+
+sortForVariousInputs()
