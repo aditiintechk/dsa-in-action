@@ -1,7 +1,7 @@
-export default function randArr() {
+export default function randArr(arraySize) {
 	let arr = []
-	for (let i = 1; i <= 10000; i++) {
-		let randNum = Math.floor(Math.random() * 10000) + 1
+	for (let i = 1; i <= arraySize; i++) {
+		let randNum = Math.floor(Math.random() * arraySize) + 1
 		arr.push(randNum)
 	}
 

@@ -2,7 +2,8 @@ import swap from '../util/swap.js'
 import randArr from '../util/randomArray.js'
 import unitTest from '../unit-test/unit-test.js'
 
-let arr = randArr()
+let arraySize = 40000
+let arr = randArr(arraySize)
 let len = arr.length
 
 function selectionSort(arr, len) {
@@ -20,4 +21,16 @@ function selectionSort(arr, len) {
 	return arr
 }
 
-unitTest(selectionSort(arr, len))
+function benchMark() {
+	let startTime, endTime, elapsedTime
+	startTime = performance.now()
+	selectionSort(arr, len)
+	endTime = performance.now()
+	elapsedTime = ((endTime - startTime) / 1000).toFixed(2)
+	console.log(
+		`selection sort for ${arraySize} numbers took ${elapsedTime} seconds`
+	)
+}
+
+benchMark()
+unitTest(selectionSort(arr, len), 'Selection')

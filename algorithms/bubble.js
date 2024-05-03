@@ -2,11 +2,12 @@ import swap from '../util/swap.js'
 import randArr from '../util/randomArray.js'
 import unitTest from '../unit-test/unit-test.js'
 
-let arr = randArr()
+let arraySize = 40000
+let arr = randArr(arraySize)
 let len = arr.length
+let swapped
 
 function bubbleSort(arr, len) {
-	let swapped
 	for (let i = 0; i < len - 1; i++) {
 		swapped = false
 		for (let j = 0; j < len - i - 1; j++) {
@@ -21,4 +22,16 @@ function bubbleSort(arr, len) {
 	return arr
 }
 
-unitTest(bubbleSort(arr, len))
+function benchMark() {
+	let startTime, endTime, elapsedTime
+	startTime = performance.now()
+	bubbleSort(arr, len)
+	endTime = performance.now()
+	elapsedTime = ((endTime - startTime) / 1000).toFixed(2)
+	console.log(
+		`bubble sort for ${arraySize} numbers took ${elapsedTime} seconds`
+	)
+}
+
+benchMark()
+unitTest(bubbleSort(arr, len), 'Bubble')

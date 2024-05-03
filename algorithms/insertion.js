@@ -1,13 +1,8 @@
 import randArr from '../util/randomArray.js'
 import unitTest from '../unit-test/unit-test.js'
 
-/* Algorithm:
-1. start the iteration from 2nd element
-2. check if the element is less than the elements before it
-3. if it is, then keep swapping until it reaches the point where the number is not less than the its previous element 
-*/
-
-let arr = randArr()
+let arraySize = 40000
+let arr = randArr(arraySize)
 let len = arr.length
 
 function insertionSort(arr, len) {
@@ -23,8 +18,19 @@ function insertionSort(arr, len) {
 
 		arr[j + 1] = key
 	}
-
 	return arr
 }
 
-unitTest(insertionSort(arr, len))
+function benchMark() {
+	let startTime, endTime, elapsedTime
+	startTime = performance.now()
+	insertionSort(arr, len)
+	endTime = performance.now()
+	elapsedTime = ((endTime - startTime) / 1000).toFixed(2)
+	console.log(
+		`insertion sort for ${arraySize} numbers took ${elapsedTime} seconds`
+	)
+}
+
+benchMark()
+unitTest(insertionSort(arr, len), 'Insertion')

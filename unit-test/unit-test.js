@@ -1,4 +1,4 @@
-export default function unitTest(arr) {
+export default function unitTest(arr, sortType) {
 	let isOrdered = true
 	for (let i = 0; i < arr.length; i++) {
 		if (arr[i] > arr[i + 1]) {
@@ -7,6 +7,6 @@ export default function unitTest(arr) {
 		}
 	}
 
-	if (isOrdered) console.log(`It is sorted!`)
-	else console.log('Oops! Not sorted.')
+	if (isOrdered) console.log(`${sortType} sort: Array is sorted!`)
+	else console.log(`Oops! ${sortType} sort: array is not sorted.`)
 }
