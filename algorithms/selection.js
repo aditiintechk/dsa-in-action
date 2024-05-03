@@ -3,7 +3,7 @@ import swap from '../util/swap.js'
 let arr = [2, 13, 3, 10, 1, 20, 61, 82, 12, 11]
 let len = arr.length
 
-function selection(arr, len) {
+function selectionSort(arr, len) {
 	let minIndex
 	for (let i = 0; i < len - 1; i++) {
 		minIndex = i
@@ -18,7 +18,7 @@ function selection(arr, len) {
 	return arr
 }
 
-console.log(selection(arr, len))
+console.log(selectionSort(arr, len))
 
 // First Try 😙
 /* function selection(arr, len) {
