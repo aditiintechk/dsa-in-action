@@ -1,4 +1,4 @@
-export default function unitTest(arr, sortType) {
+export default function verifySortAlgorithm(arr, sortType) {
 	let isOrdered = true
 	for (let i = 0; i < arr.length; i++) {
 		if (arr[i] > arr[i + 1]) {

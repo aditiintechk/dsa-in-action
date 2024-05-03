@@ -1,6 +1,6 @@
 import swap from '../util/swap.js'
 import randArr from '../util/randomArray.js'
-import unitTest from '../unit-test/unit-test.js'
+import verifySortAlgorithm from '../unit-test/unit-test.js'
 
 function bubbleSort(arraySize) {
 	let arr = randArr(arraySize)
@@ -35,7 +35,7 @@ function sortForVariousInputs() {
 	let numArr = [10, 100, 1000, 10000, 40000, 50000, 80000, 100000]
 	for (let i = 0; i < numArr.length; i++) {
 		benchMark(numArr[i])
-		unitTest(bubbleSort(numArr[i]), 'Bubble')
+		verifySortAlgorithm(bubbleSort(numArr[i]), 'Bubble')
 		console.log('-------------------------------')
 	}
 }
