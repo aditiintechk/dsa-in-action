@@ -1,6 +1,8 @@
 import swap from '../util/swap.js'
+import randArr from '../util/randomArray.js'
+import unitTest from '../unit-test/unit-test.js'
 
-let arr = [2, 14, 16, 3, 1, 10, 27, 89, 0]
+let arr = randArr()
 let len = arr.length
 
 function bubbleSort(arr, len) {
@@ -19,4 +21,4 @@ function bubbleSort(arr, len) {
 	return arr
 }
 
-console.log(bubbleSort(arr, len))
+unitTest(bubbleSort(arr, len))

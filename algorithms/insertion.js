@@ -1,10 +1,13 @@
+import randArr from '../util/randomArray.js'
+import unitTest from '../unit-test/unit-test.js'
+
 /* Algorithm:
 1. start the iteration from 2nd element
 2. check if the element is less than the elements before it
 3. if it is, then keep swapping until it reaches the point where the number is not less than the its previous element 
 */
 
-let arr = [2, 13, 3, 10, 1, 8, 19]
+let arr = randArr()
 let len = arr.length
 
 function insertionSort(arr, len) {
@@ -24,4 +27,4 @@ function insertionSort(arr, len) {
 	return arr
 }
 
-console.log(insertionSort(arr, len))
+unitTest(insertionSort(arr, len))

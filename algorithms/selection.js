@@ -1,6 +1,8 @@
 import swap from '../util/swap.js'
+import randArr from '../util/randomArray.js'
+import unitTest from '../unit-test/unit-test.js'
 
-let arr = [2, 13, 3, 10, 1, 20, 61, 82, 12, 11]
+let arr = randArr()
 let len = arr.length
 
 function selectionSort(arr, len) {
@@ -18,20 +20,4 @@ function selectionSort(arr, len) {
 	return arr
 }
 
-console.log(selectionSort(arr, len))
-
-// First Try 😙
-/* function selection(arr, len) {
-	for (let i = 0; i < len; i++) {
-		currentMinVal = arr[i]
-		for (let j = i; j < len; j++) {
-			if (currentMinVal > arr[j]) {
-				let temp = arr[j]
-				arr[j] = arr[i]
-				arr[i] = temp
-			}
-		}
-	}
-
-	return arr
-} */
+unitTest(selectionSort(arr, len))
